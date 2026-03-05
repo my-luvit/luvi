@@ -14,8 +14,8 @@ macro(LUA_ADD_EXECUTABLE target)
     set(LUA_COMMAND lua)
   endif ()
 
-  if ($ENV{LUA_PATH})
-    set(LUA_COMMAND ${CMAKE_COMMAND} -E env LUA_PATH=$ENV{LUA_PATH} -- ${LUA_COMMAND})
+  if (DEFINED ENV{LUA_PATH})
+    set(LUA_COMMAND ${CMAKE_COMMAND} -E env "LUA_PATH=$ENV{LUA_PATH}" -- ${LUA_COMMAND})
   endif ()
 
   set(target_sources)
