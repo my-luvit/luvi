@@ -270,6 +270,8 @@ jobs:
   publish:
     needs: [build-posix, build-linux, build-mingw, build-msvc, package-source, check-shared]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
